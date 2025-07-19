@@ -2,11 +2,11 @@
 #include <iostream>
 #include <windows.h>
 #include "D:\C files\myhead.h"
-#pragma comment(linker,"/subsystem:\"Windows\" /entry:\"mainCRTStartup\"")//隐藏运行窗口
+#pragma comment(linker,"/subsystem:\"Windows\" /entry:\"mainCRTStartup\"")
 using namespace std;
 int main(int argc, char* argv[])
 {
-	if (argc == 1)//无参数运行无意义，直接关掉吧
+	if (argc == 1)//鏃犲弬鏁拌繍琛屾棤鎰忎箟
 	{
 		return 0;
 	}
@@ -18,42 +18,42 @@ int main(int argc, char* argv[])
 			return 0;
 		}
 	}
-	setlocale(LC_ALL, "chs");//设置地区为中国（中文）
-	wstring 主程序;
-	wstring 参数;
-	CharToWstring(argv[1], &主程序);
+	setlocale(LC_ALL, "chs");
+	wstring mainPath;
+	wstring param;
+	CharToWstring(argv[1], &mainPath);
 	for (short i = 2; argc != 2; i++)
 	{
 		wstring temp;
 		CharToWstring(argv[i], &temp);
-		参数 += temp;
+		param += temp;
 		if (i == (argc - 1))
 		{
 			break;
 		}
-		参数 += L" ";
+		param += L" ";
 	}
 	FILE *fp;
 	wchar_t *temp = new wchar_t[255];
-	wchar_t *本程序路径 = new wchar_t[250];
+	wchar_t *mainPath2 = new wchar_t[250];
 	CharToWchar(argv[0], temp);
-	getfname(temp, NULL, 本程序路径);
+	getfname(temp, NULL, mainPath2);
 	delete[] temp;
-	wstring vbs所在;
-	vbs所在 += 本程序路径;
-	delete[] 本程序路径;
-	vbs所在 += L"TEMP.vbs";
-	fp = _wfopen(vbs所在.c_str(), L"w+");
-	fwprintf(fp, L"Set shell = CreateObject(\"Shell.Application\")\nshell.ShellExecute \"\"\"%ls\"\"\",", 主程序.c_str());
-	if (参数.length() != 0)
+	wstring vbs;
+	vbs += mainPath2;
+	delete[] mainPath2;
+	vbs += L"TEMP.vbs";
+	fp = _wfopen(vbs.c_str(), L"w+");
+	fwprintf(fp, L"Set shell = CreateObject(\"Shell.Application\")\nshell.ShellExecute \"\"\"%ls\"\"\",", mainPath.c_str());
+	if (param.length() != 0)
 	{
-		fwprintf(fp, L"\"\"\"%ls\"\"\"", 参数.c_str());
+		fwprintf(fp, L"\"\"\"%ls\"\"\"", param.c_str());
 	}
 	fwprintf(fp, L",,\"runas\",1\nWScript.Quit");
 	fclose(fp);
-	wstring 最后命令;
-	最后命令 += L"/run /tn \\UACPass\\UACPass\0";
-	ShellExecute(NULL, L"open", L"schtasks.exe", 最后命令.c_str(), NULL, SW_HIDE);
+	wstring command;
+	command += L"/run /tn \\UACPass\\UACPass\0";
+	ShellExecute(NULL, L"open", L"schtasks.exe", command.c_str(), NULL, SW_HIDE);
 	return 0;
 }
 
