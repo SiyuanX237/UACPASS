@@ -1,8 +1,8 @@
 # UACPASS
 
-###旧版UAC白名单工具，仅支持命令行配置界面（不再维护）
+### 旧版UAC白名单工具，仅支持命令行配置界面（不再维护）
 
-##作者：[Bilibili - 个人隐思](https://space.bilibili.com/1081364881 "来我主页玩玩ヾ(^∀^)ﾉ")
+### 作者：[Bilibili - 个人隐思](https://space.bilibili.com/1081364881 "来我主页玩玩ヾ(^∀^)ﾉ")
 
 ## 功能特点
  - **使用powershell**：保障新窗口始终到前台，而不是被遮挡
@@ -31,9 +31,9 @@ UACPASS.exe绝对路径 任意程序 任意参数
 
 如果需要移除，需要进入注册表并删除该项，即刻生效：
 ![image](/images/regedit.png)
-##视频介绍
+## 视频介绍
 
 [[全网首发] 一站式解决UAC弹窗白名单！- Bilibili](https://www.bilibili.com/video/BV16iCvY7EdQ/)
 
 
-#祝您使用愉快！
+# 祝您使用愉快！
