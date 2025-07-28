@@ -4,7 +4,12 @@
 
 ### 作者：[Bilibili - 个人隐思](https://space.bilibili.com/1081364881 "来我主页玩玩ヾ(^∀^)ﾉ")
 ### 爱发电主页：[ThinkAlone](https://afdian.com/a/X1415 "您赞助的每一分都是我前进的动力")
+编程不易，打赏随意：
+
+<img src="/images/afdian-ThinkAlone.jpg" height="300" /> <img src="/images/mm_reward.png" height="300" />
+
 ## 功能特点
+
  - **使用powershell**：保障新窗口始终到前台，而不是被遮挡
  - **宽字符支持**：防止编码问题
  - **利用任务计划**：防止UAC弹窗
